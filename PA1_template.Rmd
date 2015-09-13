@@ -131,23 +131,7 @@ legend('topright',c('with NAs','without NAs'),
 
 It can be seen that the histograms overlap in almost all bars. By filling the missing values with the mean of the corresponding 5-minute interval across all days, the frequency in the middle bar will be higher (which includes the mean of the total number of steps of all days). 
 
-The increased frequency in the middle bar is due to the fact that the sum of all steps that are the "averaged 5 min intervals across all days" is equal to the average of the total number of steps per day across all days. To show this, suppose there is only one day with missing numbers and let $x_{i,j}$, with $i=1,\ldots,n$ ($n$ = number of intervals per day) and $j=1,\ldots,T-1$ ($T$ = total number of days), denote a non-missing number of steps in the 5-min interval $i$ and day $j$. Let $\mu_{i,T}$ denote the only missing number of steps in the 5-min interval $i$ and day $T$. Then
-
-$$
-\begin{equation*}
-\mu_{i,T} = \frac{1}{T}\sum_{j=1}^{T-1} x_{i,j}.
-\end{equation*}$$
-
-Let $X_j$ denote the total number of steps on the day j. Thus
-$$
-\begin{align*}
-X_T = \sum_{i=1}^n \mu_{i,T} &= \sum_{i=1}^n \frac{1}{T-1}\sum_{j=1}^{T-1} x_{i,j}\\
- &= \frac{1}{T-1} \sum_{i=1}^n \sum_{j=1}^{T-1} x_{i,j}\\
- &= \frac{1}{T-1} \sum_{j=1}^{T-1} \sum_{i=1}^n x_{i,j}\\
- &= \frac{1}{T-1} \sum_{j=1}^{T-1} X_j,
-\end{align*}$$
-
-which is the average of the total number of (non-missing) steps per day across all days (the mean of the original dataset). The missing steps beeing thus replaced by the mean of the original dataset, the middle bar of the new histogram, which includes this mean, has a higher frequency.
+The increased frequency in the middle bar is due to the fact that the sum of all steps that are the "averaged 5 min intervals across all days" is equal to the average of the total number of steps per day across all days. 
 
 Replacing missing values with the mean of the known values, the mean of the new dataset will remain equal to the mean of the original dataset. The median changes. The new value of the median depends on how many points are being replaced. The more missing values are inserted, the nearer the median is to the mean. 
 
